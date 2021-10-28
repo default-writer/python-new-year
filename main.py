@@ -1,35 +1,3 @@
-import random
-
-a = 0
-while a < 1 or a > 100: 
-    s = input("загадай число от 1 до 100: ")
-    a = int(s)
-
-b = 0
-min = 1
-max = 100
-
-a = list(range(min,max+1))
-
-rules = [0, 1, 2, 3, 4]
-
-while True:
-    if len(a) == 1:
-        break
-    b = random.choice(a)
-    rule = random.choice(rules)
-    if rule == 0:
-        a = [b] if str(input(f"это число {b}? ")) == 'y' else a[0: a.index(b)] + a[a.index(b) + 1:]
-    if rule == 1:
-        a = a[a.index(b) + 1:] if str(input(f"это число больше {b}? ")) == 'y' else a[0: a.index(b) + 1]
-    if rule == 2:
-        a = a[0: a.index(b)] if str(input(f"это число меньше {b}? ")) == 'y' else a[a.index(b):]
-    if rule == 3:
-        a = [n for n in a if n % 2 == 0] if str(input(f"это число четное? ")) == 'y' else [n for n in a if n % 2 == 1]
-        rules.remove(3)
-
-print(f"это число {a[0]}")
-
 import hashlib
 import math
 from operator import itemgetter
@@ -89,7 +57,6 @@ min = 0
 max = 2147483647
 
 seed = 1238473661
-# seed = time.time()
 
 rnd = prng(seed)
 
